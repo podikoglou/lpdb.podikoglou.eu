@@ -15,6 +15,13 @@
       "when": 1767222359596,
       "tag": "0001_true_sage",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1767222406468,
+      "tag": "0002_curved_risque",
+      "breakpoints": true
     }
   ]
 }

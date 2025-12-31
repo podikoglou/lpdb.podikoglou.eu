@@ -1,0 +1,1 @@
+ALTER TABLE `entries` RENAME COLUMN "date" TO "spottedOn";

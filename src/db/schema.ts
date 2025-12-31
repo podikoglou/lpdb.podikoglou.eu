@@ -12,6 +12,6 @@ export const entriesTable = sqliteTable("entries", {
 	countryCode: text(),
 	eu: integer({ mode: "boolean" }),
 	text: text(),
-	date: integer({ mode: "timestamp" }),
+	spottedOn: integer({ mode: "timestamp" }),
 	notes: text(),
 });
