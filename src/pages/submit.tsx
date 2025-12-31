@@ -4,60 +4,60 @@ import { Layout } from "../components/layout";
 import { Navbar } from "../components/navbar";
 
 export const SubmitPage: FC = () => {
-  const date = format(new Date(), "yyyy-MM-dd'T'HH:mm");
+	const date = format(new Date(), "yyyy-MM-dd'T'HH:mm");
 
-  return (
-    <Layout>
-      <Navbar />
+	return (
+		<Layout>
+			<Navbar />
 
-      <h1>Submit License Plate</h1>
+			<h1>Submit License Plate</h1>
 
-      <form action="/submit" method="post">
-        <div>
-          {/* country */}
-          <label for="country-code">Country Code:</label>
+			<form action="/submit" method="post">
+				<div>
+					{/* country */}
+					<label for="countryCode">Country Code:</label>
 
-          <input
-            type="text"
-            id="country-code"
-            name="country-code"
-            maxlength={4}
-            autofocus
-          />
-        </div>
+					<input
+						type="text"
+						id="countryCode"
+						name="countryCode"
+						maxlength={4}
+						autofocus
+					/>
+				</div>
 
-        <div>
-          {/* EU */}
-          <label for="eu">EU:</label>
+				<div>
+					{/* EU */}
+					<label for="eu">EU:</label>
 
-          <input type="checkbox" id="eu" name="eu" />
-        </div>
+					<input type="checkbox" id="eu" name="eu" value="off" />
+				</div>
 
-        <div>
-          {/* text */}
-          <label for="text">Text:</label>
+				<div>
+					{/* text */}
+					<label for="text">Text:</label>
 
-          <input type="text" id="text" name="text" />
-        </div>
+					<input type="text" id="text" name="text" />
+				</div>
 
-        <div>
-          {/* date */}
-          <label for="date">Date:</label>
+				<div>
+					{/* date */}
+					<label for="date">Date:</label>
 
-          <input type="datetime-local" id="date" name="date" value={date} />
-        </div>
+					<input type="datetime-local" id="date" name="date" value={date} />
+				</div>
 
-        <div>
-          {/* notes */}
-          <label for="text">Notes:</label>
+				<div>
+					{/* notes */}
+					<label for="text">Notes:</label>
 
-          <textarea id="notes" name="notes" />
-        </div>
+					<textarea id="notes" name="notes" />
+				</div>
 
-        <div>
-          <input type="submit" />
-        </div>
-      </form>
-    </Layout>
-  );
+				<div>
+					<input type="submit" />
+				</div>
+			</form>
+		</Layout>
+	);
 };
