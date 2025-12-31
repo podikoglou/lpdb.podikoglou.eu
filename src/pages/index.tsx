@@ -1,12 +1,11 @@
 import type { FC } from "hono/jsx";
 import { Navbar } from "../components/navbar";
-import type { Context } from "../context";
 import { Layout } from "../layout";
 
-export const IndexPage: FC<{ context: Context }> = ({ context }) => {
+export const IndexPage: FC = () => {
 	return (
 		<Layout>
-			<Navbar context={context} />
+			<Navbar />
 
 			<h1>Alex's license plates database</h1>
 			<p>
