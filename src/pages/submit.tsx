@@ -48,6 +48,13 @@ export const SubmitPage: FC = () => {
         </div>
 
         <div>
+          {/* notes */}
+          <label for="text">Notes:</label>
+
+          <textarea id="notes" name="notes" />
+        </div>
+
+        <div>
           <input type="submit" />
         </div>
       </form>
