@@ -29,6 +29,13 @@
       "when": 1767222446842,
       "tag": "0003_slimy_shooting_star",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1767222577826,
+      "tag": "0004_lame_rumiko_fujikawa",
+      "breakpoints": true
     }
   ]
 }
