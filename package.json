@@ -20,8 +20,8 @@
   "scripts": {
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "dev": "bun --hot src/index.ts",
-    "start": "bun src/index.ts",
+    "dev": "bun --hot src/index.tsx",
+    "start": "bun src/index.tsx",
     "format": "biome check --write src/"
   }
 }
