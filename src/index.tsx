@@ -38,7 +38,7 @@ app.post(
 			date: z
 				.string()
 				.transform((value) => parse(value, "yyyy-MM-dd'T'HH:mm", new Date())),
-			notes: z.string(),
+			notes: z.string().optional(),
 		}),
 	),
 	async (c) => {
