@@ -1,6 +1,6 @@
 import type { FC } from "hono/jsx";
+import { Layout } from "../components/layout";
 import { Navbar } from "../components/navbar";
-import { Layout } from "../layout";
 
 export const IndexPage: FC = () => {
 	return (
