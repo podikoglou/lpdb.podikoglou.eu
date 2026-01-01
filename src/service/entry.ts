@@ -2,6 +2,9 @@ import { desc, eq, sql } from "drizzle-orm";
 import { db } from "../db";
 import { entriesTable } from "../db/schema";
 
+type EntrySelect = typeof entriesTable.$inferSelect;
+type EntryInsert = typeof entriesTable.$inferInsert;
+
 const entryQuery = db
 	.select()
 	.from(entriesTable)
@@ -18,18 +21,16 @@ const recentEntriesQuery = db
 
 export const findEntry = async (
 	id: number,
-): Promise<typeof entriesTable.$inferSelect | undefined> => {
+): Promise<EntrySelect | undefined> => {
 	const results = await entryQuery.execute({ id });
 
 	return results[0];
 };
 
-export const findRecentEntries = async (): Promise<
-	(typeof entriesTable.$inferSelect)[]
-> => {
+export const findRecentEntries = async (): Promise<EntrySelect[]> => {
 	return recentEntriesQuery.execute();
 };
 
-export const insertEntry = async (data: typeof entriesTable.$inferInsert) => {
+export const insertEntry = async (data: EntryInsert) => {
 	return db.insert(entriesTable).values(data).execute();
 };
