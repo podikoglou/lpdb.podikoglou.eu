@@ -3,6 +3,7 @@ import { eq } from "drizzle-orm";
 import { css, cx } from "hono/css";
 import type { FC } from "hono/jsx";
 import { Aside } from "../components/aside";
+import { Country } from "../components/country";
 import { Layout } from "../components/layout";
 import { Navbar } from "../components/navbar";
 import { db } from "../db";
@@ -46,8 +47,14 @@ export const EntryPage: FC<{ entryId: number }> = async ({ entryId }) => {
 			<table>
 				<tbody>
 					<tr>
-						<td class={cx(tdClass, keyClass)}>Country Code</td>
-						<td class={tdClass}>{entry.countryCode}</td>
+						<td class={cx(tdClass, keyClass)}>Country</td>
+						<td class={tdClass}>
+							{entry.countryCode ? (
+								<Country plateCountryCode={entry.countryCode} />
+							) : (
+								<>-</>
+							)}
+						</td>
 					</tr>
 
 					<tr>
