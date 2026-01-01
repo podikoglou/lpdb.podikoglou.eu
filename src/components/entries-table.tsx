@@ -32,7 +32,7 @@ export const EntriesTable: FC<{
 				{entries.map((entry) => (
 					<tr>
 						<td class={thClass}>
-							<a href="/entry/">#{entry.id}</a>
+							<a href={`/entry/${entry.id}`}>#{entry.id}</a>
 						</td>
 						<td class={thClass}>{entry.countryCode ?? "-"}</td>
 						<td class={thClass}>{entry.text ?? "-"}</td>

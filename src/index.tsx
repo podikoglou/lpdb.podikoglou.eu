@@ -6,6 +6,7 @@ import { serveStatic } from "hono/bun";
 import z from "zod";
 import { db } from "./db";
 import { entriesTable } from "./db/schema";
+import { EntryPage } from "./pages/entry";
 import { IndexPage } from "./pages/index";
 import { SubmitPage } from "./pages/submit";
 
@@ -21,6 +22,25 @@ app.use("/static/*", serveStatic({ root: "./" }));
 app.get("/", (c) => {
 	return c.html(<IndexPage />);
 });
+
+app.get(
+	"/entry/:id",
+	zValidator(
+		"param",
+		z.object({
+			id: z.string().transform((id) =>
+				/* this sucks really bad.
+           it can parse strings like 3489afhsdoiu as 3489 */
+				parseInt(id),
+			),
+		}),
+	),
+	(c) => {
+		const id = c.req.valid("param").id;
+
+		return c.html(<EntryPage entryId={id} />);
+	},
+);
 
 app.get("/submit", auth, (c) => {
 	return c.html(<SubmitPage />);
