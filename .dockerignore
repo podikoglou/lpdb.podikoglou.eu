@@ -1,0 +1,37 @@
+# dependencies
+node_modules
+npm-debug.log
+yarn-error.log
+bun.lockb
+
+# output
+out
+dist
+*.tgz
+
+# tests
+test
+coverage
+*.lcov
+
+# env
+.env
+.env.*
+
+# caches
+.eslintcache
+.cache
+*.tsbuildinfo
+
+# IDE
+.idea
+.vscode
+
+# OS
+.DS_Store
+Thumbs.db
+
+# local db (will be in volume)
+*.db
+*.db-shm
+*.db-wal

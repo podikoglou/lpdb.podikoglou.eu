@@ -1,35 +1,39 @@
 # use the official Bun image
 # see all versions at https://hub.docker.com/r/oven/bun/tags
 FROM oven/bun:1 AS base
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# install dependencies into temp directory
-# this will cache them and speed up future builds
+# install dependencies (production only to avoid better-sqlite3 build issues)
 FROM base AS install
-RUN mkdir -p /temp/dev
-COPY package.json bun.lock /temp/dev/
-RUN cd /temp/dev && bun install --frozen-lockfile
-
-# install with --production (exclude devDependencies)
 RUN mkdir -p /temp/prod
 COPY package.json bun.lock /temp/prod/
-RUN cd /temp/prod && bun install --frozen-lockfile --production
+WORKDIR /temp/prod
+RUN bun install --frozen-lockfile --production
 
-# copy node_modules from temp directory
-# then copy all (non-ignored) project files into the image
-FROM base AS prerelease
-COPY --from=install /temp/dev/node_modules node_modules
-COPY . .
-
-ENV NODE_ENV=production
-
-# copy production dependencies and source code into final image
+# final production image
 FROM base AS release
+WORKDIR /app
+
+# copy production dependencies
 COPY --from=install /temp/prod/node_modules node_modules
-COPY --from=prerelease /usr/src/app/index.tsx .
-COPY --from=prerelease /usr/src/app/package.json .
+
+# copy source code
+COPY package.json bun.lock ./
+COPY src ./src
+COPY static ./static
+
+# create directory for database with proper permissions
+RUN mkdir -p /app/data && chown -R bun:bun /app/data
+
+# environment variables
+ENV NODE_ENV=production
+ENV DB_FILE_NAME=/app/data/lp.db
+
+# run as non-root user
+USER bun
+
+# expose port
+EXPOSE 3000
 
 # run the app
-USER bun
-EXPOSE 3000/tcp
-ENTRYPOINT [ "bun", "run", "index.tsx" ]
+ENTRYPOINT ["bun", "run", "src/index.tsx"]
