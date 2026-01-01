@@ -37,7 +37,7 @@ export const EntriesTable: FC<{
 						<td class={thClass}>{entry.countryCode ?? "-"}</td>
 						<td class={thClass}>{entry.text ?? "-"}</td>
 						<td class={thClass}>
-							{entry.spottedOn ? format(entry.spottedOn, "MM yyyy") : ""}
+							{entry.spottedOn ? format(entry.spottedOn, "MMM yyyy") : ""}
 						</td>
 					</tr>
 				))}
