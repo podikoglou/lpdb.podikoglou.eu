@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import { eq } from "drizzle-orm";
 import type { FC } from "hono/jsx";
 import { Layout } from "../components/layout";
@@ -32,13 +33,43 @@ export const EntryPage: FC<{ entryId: number }> = async ({ entryId }) => {
 
 			<h1>Entry # {entry.id}</h1>
 
-			<p>
-				<b>Country Code</b>: {entry.countryCode}
-			</p>
+			<table>
+				<tbody>
+					<tr>
+						<td>Country Code</td>
+						<td>{entry.countryCode}</td>
+					</tr>
 
-			<p>
-				<b>License Plate</b>: {entry.text}
-			</p>
+					<tr>
+						<td>License Plate</td>
+						<td>{entry.text}</td>
+					</tr>
+
+					<tr>
+						<td>EU</td>
+						<td>{entry.eu ? "Yes" : "No"}</td>
+					</tr>
+
+					<tr>
+						<td>Notes</td>
+						<td>{entry.notes}</td>
+					</tr>
+
+					<tr>
+						<td>Spotted On</td>
+						<td>
+							{entry.spottedOn ? format(entry.spottedOn, "MMM yyyy") : "-"}
+						</td>
+					</tr>
+
+					<tr>
+						<td>Submitted</td>
+						<td>
+							{entry.createdAt ? format(entry.createdAt, "MMM yyyy") : "-"}
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</Layout>
 	);
 };
