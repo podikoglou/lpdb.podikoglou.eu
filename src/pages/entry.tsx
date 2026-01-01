@@ -2,6 +2,7 @@ import { format } from "date-fns";
 import { eq } from "drizzle-orm";
 import { css, cx } from "hono/css";
 import type { FC } from "hono/jsx";
+import { Aside } from "../components/aside";
 import { Layout } from "../components/layout";
 import { Navbar } from "../components/navbar";
 import { db } from "../db";
@@ -31,6 +32,7 @@ export const EntryPage: FC<{ entryId: number }> = async ({ entryId }) => {
 	const tdClass = css`
     padding-right: 30px;
   `;
+
 	const keyClass = css`
     font-weight: bold;
   `;
@@ -78,6 +80,8 @@ export const EntryPage: FC<{ entryId: number }> = async ({ entryId }) => {
 					</tr>
 				</tbody>
 			</table>
+
+			<Aside text="The spotted date might be approximated. Don't ask how." />
 		</Layout>
 	);
 };
