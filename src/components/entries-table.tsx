@@ -1,5 +1,4 @@
 import { format } from "date-fns";
-import { hr } from "date-fns/locale";
 import { css } from "hono/css";
 import type { FC } from "hono/jsx";
 import type { entriesTable } from "../db/schema";
