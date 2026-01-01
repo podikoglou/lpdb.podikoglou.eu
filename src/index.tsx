@@ -7,6 +7,7 @@ import z from "zod";
 import { db } from "./db";
 import { entriesTable } from "./db/schema";
 import { EntryPage } from "./pages/entry";
+import { ErrorPage } from "./pages/error";
 import { IndexPage } from "./pages/index";
 import { SubmitPage } from "./pages/submit";
 
@@ -76,5 +77,9 @@ app.post(
 		return c.html(<SubmitPage />);
 	},
 );
+
+app.all("*", (c) => {
+	return c.html(<ErrorPage error="Invalid Page" />);
+});
 
 export default app;
