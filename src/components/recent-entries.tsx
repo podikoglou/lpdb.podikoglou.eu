@@ -1,5 +1,5 @@
 import type { FC } from "hono/jsx";
-import { findRecentEntries } from "../service/entry";
+import { findRecentEntries } from "../services/entry";
 import { EntriesTable } from "./entries-table";
 
 export const RecentEntries: FC = async () => {

@@ -10,7 +10,7 @@ import { EntryPage } from "./pages/entry";
 import { ErrorPage } from "./pages/error";
 import { IndexPage } from "./pages/index";
 import { SubmitPage } from "./pages/submit";
-import { insertEntry } from "./service/entry";
+import { insertEntry } from "./services/entry";
 
 const app = new Hono();
 

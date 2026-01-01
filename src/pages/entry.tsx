@@ -5,7 +5,7 @@ import { Aside } from "../components/aside";
 import { Country } from "../components/country";
 import { Layout } from "../components/layout";
 import { Navbar } from "../components/navbar";
-import { findEntry } from "../service/entry";
+import { findEntry } from "../services/entry";
 import { ErrorPage } from "./error";
 
 export const EntryPage: FC<{ entryId: number }> = async ({ entryId }) => {
