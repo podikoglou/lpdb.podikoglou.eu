@@ -13,7 +13,7 @@ import { SubmitPage } from "./pages/submit";
 const app = new Hono();
 
 const auth = basicAuth({
-	username: process.env.USERNAME!,
+	username: process.env.APP_USERNAME!,
 	password: process.env.PASSWORD!,
 });
 
