@@ -14,6 +14,8 @@ export const IndexPage: FC = () => {
 				the past few years.
 			</p>
 
+			<h2>Recent Entries</h2>
+
 			<RecentEntries />
 		</Layout>
 	);
