@@ -8,6 +8,7 @@ import { Layout } from "../components/layout";
 import { Navbar } from "../components/navbar";
 import { db } from "../db";
 import { entriesTable } from "../db/schema";
+import { ErrorPage } from "./error";
 
 const entryQuery = db
 	.select()
@@ -18,19 +19,11 @@ const entryQuery = db
 
 export const EntryPage: FC<{ entryId: number }> = async ({ entryId }) => {
 	const results = await entryQuery.execute({ id: entryId });
+	const entry = results[0];
 
-	if (results.length === 0) {
-		// TODO: 404
-		return (
-			<Layout>
-				<Navbar />
-
-				<h1>404</h1>
-			</Layout>
-		);
+	if (!entry) {
+		return <ErrorPage error="Entry not found" />;
 	}
-
-	const entry = results[0]!; // NOTE: this sucks
 
 	const tdClass = css`
     padding-right: 30px;
