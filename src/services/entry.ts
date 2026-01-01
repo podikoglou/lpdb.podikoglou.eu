@@ -15,7 +15,7 @@ const entryQuery = db
 const recentEntriesQuery = db
 	.select()
 	.from(entriesTable)
-	.orderBy(desc(entriesTable.spottedOn))
+	.orderBy(desc(entriesTable.id))
 	.limit(20)
 	.prepare();
 
