@@ -24,7 +24,7 @@ export const EntriesTable: FC<{
 			<thead>
 				<tr>
 					<th class={thClass}>ID</th>
-					<th class={thClass}>Country Code</th>
+					<th class={thClass}>Country</th>
 					<th class={thClass}>License Plate</th>
 					<th class={thClass}>Spotted On</th>
 				</tr>
