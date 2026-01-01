@@ -25,7 +25,6 @@ export const EntriesTable: FC<{
 					<th class={thClass}>Country Code</th>
 					<th class={thClass}>License Plate</th>
 					<th class={thClass}>Spotted On</th>
-					<th class={thClass}>Submitted At</th>
 				</tr>
 			</thead>
 
@@ -39,9 +38,6 @@ export const EntriesTable: FC<{
 						<td class={thClass}>{entry.text ?? "-"}</td>
 						<td class={thClass}>
 							{entry.spottedOn ? format(entry.spottedOn, "MM yyyy") : ""}
-						</td>
-						<td class={thClass}>
-							{entry.createdAt ? format(entry.createdAt, "MM yyyy") : ""}
 						</td>
 					</tr>
 				))}
