@@ -233,6 +233,7 @@ nav {
         }
     }
 }
+
 /* Form styles */
 form > div {
     margin-bottom: 1em;
@@ -276,3 +277,14 @@ input[type="submit"]:hover {
     opacity: 0.9;
 }
 
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+}
+
+th, td {
+    text-align: left;
+    padding: 0.5em;
+}

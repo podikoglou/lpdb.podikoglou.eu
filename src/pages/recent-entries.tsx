@@ -6,14 +6,6 @@ import { findRecentEntries } from "../services/entry";
 
 export const RecentEntriesPage: FC<{ page: number }> = async ({ page }) => {
 	const entries = await findRecentEntries(page);
-
-	const thClass = css`
-    font-weight: normal;
-    /*border-bottom: 1px solid #ddd;*/
-    padding-left: 15px;
-    padding-right: 15px;
-  `;
-
 	return (
 		<>
 			{entries.map((entry, idx) => {
@@ -28,19 +20,19 @@ export const RecentEntriesPage: FC<{ page: number }> = async ({ page }) => {
 
 				return (
 					<tr {...props}>
-						<td class={thClass}>
+						<td>
 							<a href={`/entry/${entry.id}`}>#{entry.id}</a>
 						</td>
 
-						<td class={thClass}>
+						<td>
 							{entry.countryCode ? (
 								<Country plateCountryCode={entry.countryCode} />
 							) : null}
 						</td>
 
-						<td class={thClass}>{entry.text ?? "-"}</td>
+						<td>{entry.text ?? "-"}</td>
 
-						<td class={thClass}>
+						<td>
 							{entry.spottedOn ? format(entry.spottedOn, "MMM yyyy") : ""}
 						</td>
 					</tr>
