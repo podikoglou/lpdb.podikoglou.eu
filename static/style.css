@@ -152,7 +152,7 @@ body {
     line-height: 1.6;
     max-width: 65ch;
     letter-spacing: 0.02em;
-    font-family: "Recursive Variable", monospace;
+    font-family: "Recursive", monospace;
     background-color: var(--color-background);
     color: var(--color-foreground);
 }
